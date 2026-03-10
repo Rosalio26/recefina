@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Versos de Recefina — Poesia Moçambicana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:wght@100;300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --creme: #f5eed8;
+      --pergaminho: #e8d9b0;
+      --tinta: #1a1008;
+      --sepia: #7a5c2e;
+      --vermelho: #8b1a1a;
+      --ouro: #c9922a;
+      --cinza-velho: #4a3f30;
+      --shadow: rgba(26,16,8,0.15);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background-color:var(--creme); color:var(--tinta);
+      font-family:'IM Fell English',serif; overflow-x:hidden; cursor:crosshair;
+    }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:9999; opacity:0.35;
+    }
+
+    /* HEADER */
+    header {
+      position:relative; text-align:center;
+      padding:clamp(28px,6vw,68px) 20px clamp(22px,4vw,42px);
+      border-bottom:3px double var(--sepia);
+      background:linear-gradient(180deg,var(--pergaminho) 0%,var(--creme) 100%);
+      overflow:hidden;
+    }
+    header::before,header::after {
+      content:'❧'; position:absolute;
+      font-size:clamp(34px,7vw,84px); color:var(--ouro); opacity:0.13; top:10px;
+    }
+    header::before { left:clamp(8px,3vw,32px); transform:scaleX(-1); }
+    header::after  { right:clamp(8px,3vw,32px); }
+    .dedicatoria {
+      font-family:'Josefin Sans',sans-serif; font-weight:300;
+      letter-spacing:0.44em; font-size:clamp(0.56rem,1.4vw,0.76rem);
+      color:var(--vermelho); text-transform:uppercase;
+      animation:fadeDown 1s ease both; margin-bottom:6px;
+    }
+    .header-titulo {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.2rem,8vw,6.8rem);
+      font-weight:900; color:var(--tinta); line-height:0.88;
+      margin:8px 0 6px; animation:fadeDown 1s ease 0.2s both; letter-spacing:-0.02em;
+    }
+    .header-titulo span { color:var(--vermelho); font-style:italic; }
+    .header-subtitulo {
+      font-family:'Special Elite',cursive;
+      font-size:clamp(0.7rem,1.8vw,1rem); color:var(--sepia);
+      letter-spacing:0.12em; margin-top:8px; animation:fadeDown 1s ease 0.4s both;
+    }
+    .header-ornamento {
+      margin:16px auto 0; display:flex; align-items:center; justify-content:center; gap:13px;
+      animation:fadeDown 1s ease 0.5s both;
+    }
+    .header-ornamento span { height:1px; width:clamp(32px,8vw,96px); background:var(--sepia); opacity:0.44; }
+    .header-ornamento em { color:var(--ouro); font-style:normal; font-size:1.2rem; }
+
+    /* NAV */
+    nav {
+      display:flex; justify-content:center; gap:clamp(8px,2.2vw,32px);
+      padding:12px 12px; border-bottom:1px solid var(--pergaminho);
+      flex-wrap:wrap; position:sticky; top:0; z-index:100;
+      background:var(--creme); box-shadow:0 2px 10px var(--shadow);
+    }
+    nav a {
+      font-family:'Josefin Sans',sans-serif; font-size:clamp(0.5rem,1.3vw,0.66rem);
+      letter-spacing:0.24em; text-transform:uppercase;
+      color:var(--cinza-velho); text-decoration:none;
+      transition:color 0.3s; padding-bottom:2px; border-bottom:1px solid transparent;
+    }
+    nav a:hover,nav a.ativo { color:var(--vermelho); border-bottom-color:var(--vermelho); }
+
+    /* BUSCA */
+    .barra-busca {
+      max-width:1100px; margin:26px auto 0; padding:0 20px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+    .busca-wrapper { position:relative; flex:1; min-width:180px; }
+    .busca-wrapper input {
+      width:100%; background:var(--pergaminho);
+      border:1px solid var(--sepia); padding:11px 13px 11px 40px;
+      font-family:'IM Fell English',serif; font-size:0.9rem;
+      color:var(--tinta); outline:none; transition:border-color 0.3s;
+    }
+    .busca-wrapper input:focus { border-color:var(--tinta); }
+    .busca-wrapper::before {
+      content:'⌕'; position:absolute; left:12px; top:50%;
+      transform:translateY(-50%); color:var(--sepia); font-size:1.1rem; pointer-events:none;
+    }
+    .busca-info {
+      font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+      letter-spacing:0.23em; text-transform:uppercase; color:var(--sepia);
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width:1100px; margin:0 auto;
+      padding:clamp(26px,5vw,54px) 20px;
+      display:grid; grid-template-columns:1fr clamp(240px,26vw,305px);
+      gap:clamp(26px,5vw,56px); align-items:start;
+    }
+
+    /* ESTADO VAZIO */
+    .estado-vazio {
+      text-align:center; padding:clamp(46px,10vw,86px) 20px; animation:fadeUp 1s ease both;
+    }
+    .icone-vazio { font-size:clamp(2.8rem,7vw,4.5rem); color:var(--ouro); opacity:0.45; display:block; margin-bottom:18px; }
+    .estado-vazio h2 {
+      font-family:'Playfair Display',serif; font-size:clamp(1.3rem,4vw,2rem);
+      font-weight:700; color:var(--tinta); margin-bottom:11px;
+    }
+    .estado-vazio p {
+      font-family:'IM Fell English',serif; font-size:clamp(0.88rem,2vw,1.02rem);
+      color:var(--sepia); line-height:1.9; max-width:420px; margin:0 auto 26px;
+    }
+
+    /* DESTAQUE */
+    .poema-destaque { position:relative; animation:fadeUp 1.2s ease 0.3s both; }
+    .poema-destaque::before {
+      content:'"'; font-family:'Playfair Display',serif;
+      font-size:clamp(80px,15vw,200px); color:var(--ouro); opacity:0.1;
+      position:absolute; top:-38px; left:-16px; line-height:1; pointer-events:none;
+    }
+    .tag-edicao {
+      font-family:'Josefin Sans',sans-serif; font-size:0.61rem;
+      letter-spacing:0.38em; text-transform:uppercase; color:var(--vermelho);
+      margin-bottom:13px; display:flex; align-items:center; gap:10px;
+    }
+    .tag-edicao::after { content:''; flex:1; height:1px; background:var(--vermelho); opacity:0.4; }
+    .poema-titulo-grande {
+      font-family:'Playfair Display',serif; font-size:clamp(1.6rem,5vw,3.5rem);
+      font-weight:700; line-height:1.1; margin-bottom:8px;
+    }
+    .poema-titulo-grande em { font-style:italic; color:var(--vermelho); }
+    .poema-autor-linha {
+      font-family:'Special Elite',cursive; font-size:0.86rem;
+      color:var(--sepia); margin-bottom:24px; display:flex; align-items:center; gap:10px;
+    }
+    .poema-autor-linha::before { content:'—'; }
+    .poema-corpo {
+      font-family:'IM Fell English',serif; font-size:clamp(0.96rem,2vw,1.1rem);
+      line-height:2; color:var(--tinta);
+      border-left:3px solid var(--ouro); padding-left:clamp(11px,3vw,21px); margin-bottom:24px;
+    }
+    .poema-corpo p { margin-bottom:15px; }
+    .poema-corpo .ei { font-style:italic; color:var(--cinza-velho); }
+
+    .btn-ler {
+      display:inline-block; font-family:'Josefin Sans',sans-serif;
+      font-size:0.64rem; letter-spacing:0.33em; text-transform:uppercase;
+      color:var(--creme); background:var(--tinta); border:none;
+      padding:12px 22px; cursor:pointer; transition:background 0.3s,transform 0.2s; text-decoration:none;
+    }
+    .btn-ler:hover { background:var(--vermelho); transform:translateY(-2px); }
+
+    /* SEPARADOR */
+    .separador { display:flex; align-items:center; gap:11px; margin:clamp(22px,5vw,42px) 0 clamp(18px,4vw,34px); opacity:0.5; }
+    .separador span { flex:1; height:1px; background:var(--sepia); }
+    .separador em { font-style:normal; color:var(--sepia); font-size:1rem; }
+
+    /* GRADE */
+    .secao-titulo {
+      font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+      letter-spacing:0.36em; text-transform:uppercase; color:var(--sepia); margin-bottom:18px;
+    }
+    .poemas-grade {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(clamp(180px,36%,260px),1fr));
+      gap:clamp(13px,2.5vw,26px);
+    }
+    .poema-card {
+      background:var(--pergaminho); padding:clamp(14px,3vw,24px) clamp(12px,2.5vw,20px);
+      border-top:3px solid var(--tinta); cursor:pointer;
+      transition:transform 0.3s,box-shadow 0.3s; animation:fadeUp 0.8s ease both;
+    }
+    .poema-card:hover { transform:translateY(-5px); box-shadow:5px 5px 0 var(--sepia); }
+    .poema-card-numero { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color:var(--ouro); opacity:0.2; line-height:1; margin-bottom:4px; }
+    .poema-card-titulo { font-family:'Playfair Display',serif; font-size:clamp(0.92rem,2vw,1.12rem); font-weight:700; color:var(--tinta); margin-bottom:3px; }
+    .poema-card-autor { font-family:'Josefin Sans',sans-serif; font-size:0.58rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sepia); margin-bottom:10px; }
+    .poema-card-trecho { font-family:'IM Fell English',serif; font-size:clamp(0.78rem,1.5vw,0.86rem); font-style:italic; color:var(--cinza-velho); line-height:1.7; border-left:2px solid var(--ouro); padding-left:9px; }
+    .poema-card-tags { margin-top:10px; display:flex; flex-wrap:wrap; gap:5px; }
+    .poema-card-tag { font-family:'Josefin Sans',sans-serif; font-size:0.46rem; letter-spacing:0.16em; text-transform:uppercase; background:var(--tinta); color:var(--creme); padding:2px 6px; }
+    .sem-resultados { text-align:center; padding:46px 20px; color:var(--sepia); grid-column:1/-1; }
+    .sem-resultados em { font-size:1.8rem; display:block; margin-bottom:9px; }
+    .sem-resultados p { font-family:'Special Elite',cursive; font-size:0.92rem; }
+
+    /* SIDEBAR */
+    aside { animation:fadeUp 1.2s ease 0.5s both; }
+    .sidebar-bloco { margin-bottom:clamp(22px,4vw,44px); }
+    .sidebar-titulo {
+      font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+      letter-spacing:0.36em; text-transform:uppercase; color:var(--vermelho);
+      padding-bottom:8px; border-bottom:2px solid var(--tinta); margin-bottom:15px;
+    }
+
+    .contador-box { background:var(--pergaminho); border:1px dashed var(--sepia); padding:16px; text-align:center; }
+    .contador-box .numero { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:var(--vermelho); line-height:1; }
+    .contador-box p { font-family:'Josefin Sans',sans-serif; font-size:0.56rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--sepia); margin-top:5px; }
+
+    .autora-box { border:1px solid var(--sepia); padding:18px; }
+    .autora-nome { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:900; color:var(--tinta); margin-bottom:3px; }
+    .autora-sub { font-family:'Josefin Sans',sans-serif; font-size:0.56rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--sepia); margin-bottom:11px; }
+    .autora-box p { font-family:'IM Fell English',serif; font-size:0.84rem; line-height:1.72; color:var(--cinza-velho); }
+
+    .whatsapp-box { background:var(--tinta); color:var(--creme); padding:clamp(16px,3vw,26px) clamp(13px,2.5vw,22px); position:relative; overflow:hidden; }
+    .whatsapp-box::before { content:'✉'; font-size:4.5rem; opacity:0.05; position:absolute; bottom:-10px; right:-4px; }
+    .whatsapp-box h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; margin-bottom:9px; color:var(--ouro); }
+    .whatsapp-box p { font-family:'IM Fell English',serif; font-size:0.82rem; line-height:1.72; color:var(--pergaminho); opacity:0.84; margin-bottom:14px; }
+    .btn-whatsapp {
+      display:flex; align-items:center; justify-content:center; gap:9px;
+      background:#25D366; color:#fff; border:none;
+      padding:11px 16px; font-family:'Josefin Sans',sans-serif;
+      font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase;
+      cursor:pointer; transition:background 0.3s,transform 0.2s; text-decoration:none; width:100%;
+    }
+    .btn-whatsapp:hover { background:#1da851; transform:translateY(-1px); }
+
+    .citacao-sidebar { background:var(--vermelho); color:var(--creme); padding:clamp(14px,3vw,22px) clamp(12px,2.5vw,18px); position:relative; }
+    .citacao-sidebar blockquote { font-family:'Playfair Display',serif; font-size:clamp(0.85rem,2vw,0.98rem); font-style:italic; line-height:1.7; margin-bottom:9px; }
+    .citacao-sidebar cite { font-family:'Josefin Sans',sans-serif; font-size:0.56rem; letter-spacing:0.22em; text-transform:uppercase; opacity:0.68; display:block; text-align:right; }
+    .citacao-sidebar::before { content:'❝'; font-size:3rem; opacity:0.13; position:absolute; top:-8px; left:10px; font-family:'Playfair Display',serif; }
+
+    /* MODAL POEMA */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(26,16,8,0.9); z-index:1000; align-items:center; justify-content:center; padding:12px; }
+    .modal-overlay.aberto { display:flex; animation:fadeIn 0.26s ease; }
+    .modal {
+      background:var(--creme); max-width:620px; width:100%;
+      padding:clamp(22px,6vw,48px) clamp(16px,5vw,38px);
+      position:relative; max-height:93vh; overflow-y:auto; animation:slideUp 0.3s ease;
+    }
+    .modal-fechar { position:absolute; top:12px; right:15px; font-size:1.25rem; background:none; border:none; cursor:pointer; color:var(--sepia); transition:color 0.2s; }
+    .modal-fechar:hover { color:var(--vermelho); }
+    .modal-cat { font-family:'Josefin Sans',sans-serif; font-size:0.56rem; letter-spacing:0.36em; text-transform:uppercase; color:var(--vermelho); margin-bottom:10px; }
+    .modal h2 { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,5vw,2.2rem); font-weight:900; margin-bottom:5px; line-height:1.1; }
+    .modal .modal-autor { font-family:'Special Elite',cursive; color:var(--sepia); margin-bottom:22px; font-size:0.86rem; }
+    .texto-poema { font-family:'IM Fell English',serif; font-size:clamp(0.91rem,2vw,1.04rem); line-height:2.05; color:var(--tinta); }
+    .texto-poema p { margin-bottom:18px; white-space:pre-line; }
+    .modal-rodape { margin-top:24px; padding-top:14px; border-top:1px solid var(--pergaminho); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:9px; }
+    .modal-ano { font-family:'Josefin Sans',sans-serif; font-size:0.58rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--sepia); }
+    .modal-tags-lista { display:flex; gap:5px; flex-wrap:wrap; }
+    .modal-tag-item { font-family:'Josefin Sans',sans-serif; font-size:0.48rem; letter-spacing:0.16em; text-transform:uppercase; background:var(--tinta); color:var(--creme); padding:2px 6px; }
+    .modal-partilhar { margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
+    .btn-p-wpp {
+      display:flex; align-items:center; gap:7px;
+      background:#25D366; color:#fff; border:none;
+      padding:9px 15px; font-family:'Josefin Sans',sans-serif;
+      font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase;
+      cursor:pointer; transition:background 0.3s; text-decoration:none;
+    }
+    .btn-p-wpp:hover { background:#1da851; }
+
+    /* MODAL ADMIN */
+    .modal-admin {
+      background:var(--creme); max-width:680px; width:100%;
+      padding:clamp(20px,5vw,44px) clamp(15px,4vw,36px);
+      position:relative; max-height:94vh; overflow-y:auto; animation:slideUp 0.3s ease;
+    }
+    .modal-admin h2 { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,4vw,1.8rem); font-weight:900; margin-bottom:4px; }
+    .subtitulo-admin { font-family:'Special Elite',cursive; color:var(--sepia); font-size:0.82rem; margin-bottom:22px; }
+    .form-aviso { background:var(--pergaminho); border-left:3px solid var(--ouro); padding:9px 12px; font-family:'IM Fell English',serif; font-size:0.78rem; color:var(--cinza-velho); margin-bottom:15px; line-height:1.6; }
+    .form-grupo { margin-bottom:14px; }
+    .form-grupo label { display:block; font-family:'Josefin Sans',sans-serif; font-size:0.56rem; letter-spacing:0.31em; text-transform:uppercase; color:var(--sepia); margin-bottom:6px; }
+    .form-grupo input,.form-grupo textarea,.form-grupo select { width:100%; background:var(--pergaminho); border:1px solid var(--sepia); padding:10px 11px; font-family:'IM Fell English',serif; font-size:0.9rem; color:var(--tinta); outline:none; resize:vertical; transition:border-color 0.3s; }
+    .form-grupo input:focus,.form-grupo textarea:focus,.form-grupo select:focus { border-color:var(--tinta); }
+    .form-grupo textarea { min-height:160px; line-height:1.85; }
+    .form-linha { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .form-botoes { display:flex; gap:9px; flex-wrap:wrap; margin-top:8px; }
+    .btn-salvar { background:var(--tinta); color:var(--creme); border:none; padding:12px 24px; font-family:'Josefin Sans',sans-serif; font-size:0.64rem; letter-spacing:0.31em; text-transform:uppercase; cursor:pointer; transition:background 0.3s,transform 0.2s; flex:1; }
+    .btn-salvar:hover { background:var(--vermelho); transform:translateY(-1px); }
+    .btn-cancelar { background:transparent; color:var(--tinta); border:1px solid var(--tinta); padding:12px 18px; font-family:'Josefin Sans',sans-serif; font-size:0.64rem; letter-spacing:0.31em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; }
+    .btn-cancelar:hover { border-color:var(--vermelho); color:var(--vermelho); }
+
+    /* BTN FLUTUANTE */
+    .btn-admin-float { position:fixed; bottom:24px; right:24px; z-index:500; background:var(--tinta); color:var(--ouro); width:54px; height:54px; border-radius:50%; border:none; font-size:1.28rem; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.32); transition:background 0.3s,transform 0.2s; display:flex; align-items:center; justify-content:center; }
+    .btn-admin-float:hover { background:var(--vermelho); transform:scale(1.1); }
+
+    /* TOAST */
+    .toast { position:fixed; bottom:90px; right:24px; z-index:2000; background:var(--tinta); color:var(--creme); padding:11px 17px; font-family:'Special Elite',cursive; font-size:0.84rem; box-shadow:0 4px 14px rgba(0,0,0,0.28); transform:translateY(20px); opacity:0; transition:all 0.3s ease; pointer-events:none; max-width:272px; }
+    .toast.visivel { transform:translateY(0); opacity:1; }
+
+    /* FOOTER */
+    footer { border-top:3px double var(--sepia); background:var(--tinta); color:var(--pergaminho); text-align:center; padding:clamp(24px,5vw,40px) 20px; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:clamp(1.1rem,4vw,1.8rem); font-weight:900; letter-spacing:0.1em; color:var(--ouro); margin-bottom:5px; }
+    footer p { font-family:'Josefin Sans',sans-serif; font-size:0.54rem; letter-spacing:0.33em; text-transform:uppercase; opacity:0.3; }
+    .ornamento-footer { margin:11px 0; font-size:1.1rem; color:var(--ouro); opacity:0.3; letter-spacing:8px; }
+
+    /* ANIMAÇÕES */
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+    @keyframes slideUp  { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+
+    /* RESPONSIVO */
+    @media (max-width:860px) { .container { grid-template-columns:1fr; } aside{order:2} main{order:1} }
+    @media (max-width:520px) { .poemas-grade{grid-template-columns:1fr} .form-linha{grid-template-columns:1fr} .modal-rodape{flex-direction:column;align-items:flex-start} nav{gap:6px 12px} }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <p class="dedicatoria">✦ Poesia Moçambicana · Maputo ✦</p>
+  <h1 class="header-titulo">VERSOS DE <span>RECEFINA</span></h1>
+  <p class="header-subtitulo">Colectânea de Poesia · Moçambique</p>
+  <div class="header-ornamento"><span></span><em>❦</em><span></span></div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#" onclick="filtrar(null);return false;" class="ativo" id="nav-todos">Todos</a>
+  <a href="#" onclick="filtrar('Amor');return false;" id="nav-Amor">Amor</a>
+  <a href="#" onclick="filtrar('Pátria');return false;" id="nav-Patria">Pátria</a>
+  <a href="#" onclick="filtrar('Saudade');return false;" id="nav-Saudade">Saudade</a>
+  <a href="#" onclick="filtrar('Natureza');return false;" id="nav-Natureza">Natureza</a>
+  <a href="#" onclick="filtrar('Liberdade');return false;" id="nav-Liberdade">Liberdade</a>
+  <a href="#" onclick="filtrar('Vida');return false;" id="nav-Vida">Vida</a>
+</nav>
+
+<!-- BUSCA -->
+<div class="barra-busca">
+  <div class="busca-wrapper">
+    <input type="text" id="campoBusca" placeholder="Buscar título, verso ou palavra-chave…" oninput="buscar()" />
+  </div>
+  <span class="busca-info" id="busca-info"></span>
+</div>
+
+<!-- CONTAINER -->
+<div class="container">
+  <main id="main"></main>
+  <aside>
+    <div class="sidebar-bloco">
+      <p class="sidebar-titulo">A Colectânea</p>
+      <div class="contador-box">
+        <div class="numero" id="totalPoemas">0</div>
+        <p>Poemas publicados</p>
+      </div>
+    </div>
+    <div class="sidebar-bloco">
+      <p class="sidebar-titulo">Sobre a Autora</p>
+      <div class="autora-box">
+        <div class="autora-nome">Recefina</div>
+        <div class="autora-sub">Poeta · Moçambique</div>
+        <p>Palavras nascidas do coração do Índico. Versos que falam da terra, do amor e da alma moçambicana.</p>
+      </div>
+    </div>
+    <div class="sidebar-bloco">
+      <p class="sidebar-titulo">Contacto</p>
+      <div class="whatsapp-box">
+        <h3>Fala com Recefina</h3>
+        <p>Para encomendas, parcerias ou simplesmente partilhar a emoção de um verso.</p>
+        <a id="wppSidebar" href="#" target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+    <div class="sidebar-bloco">
+      <div class="citacao-sidebar">
+        <blockquote>"A poesia é a voz que o silêncio não consegue calar."</blockquote>
+        <cite>— Recefina</cite>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">VERSOS DE RECEFINA</div>
+  <div class="ornamento-footer">✦ ✦ ✦</div>
+  <p>Poesia Moçambicana · Maputo · Moçambique</p>
+</footer>
+
+<!-- BTN ADMIN -->
+<button class="btn-admin-float" onclick="abrirAdmin()" title="Publicar Poema">✒</button>
+
+<!-- MODAL POEMA -->
+<div class="modal-overlay" id="modalPoema">
+  <div class="modal">
+    <button class="modal-fechar" onclick="fecharPoema()">✕</button>
+    <div class="modal-cat" id="mp-cat"></div>
+    <h2 id="mp-titulo"></h2>
+    <p class="modal-autor" id="mp-autor"></p>
+    <div class="texto-poema" id="mp-texto"></div>
+    <div class="modal-rodape">
+      <span class="modal-ano" id="mp-ano"></span>
+      <div class="modal-tags-lista" id="mp-tags"></div>
+    </div>
+    <div class="modal-partilhar">
+      <a id="mp-wpp" href="#" target="_blank" rel="noopener" class="btn-p-wpp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Partilhar este poema
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ADMIN -->
+<div class="modal-overlay" id="modalAdmin">
+  <div class="modal-admin">
+    <button class="modal-fechar" onclick="fecharAdmin()">✕</button>
+    <h2>Publicar Novo Poema</h2>
+    <p class="subtitulo-admin">— Adicione à sua colectânea</p>
+    <div class="form-aviso">
+      💡 O poema fica guardado no navegador. Para o tornar permanente, adicione-o ao array <strong>POEMAS</strong> no código JavaScript deste ficheiro.
+    </div>
+    <div class="form-grupo">
+      <label>Título *</label>
+      <input id="fTitulo" type="text" placeholder="Título do poema…" />
+    </div>
+    <div class="form-linha">
+      <div class="form-grupo">
+        <label>Autora</label>
+        <input id="fAutor" type="text" value="Recefina" />
+      </div>
+      <div class="form-grupo">
+        <label>Ano</label>
+        <input id="fAno" type="text" placeholder="2025" />
+      </div>
+    </div>
+    <div class="form-grupo">
+      <label>Trecho (primeiros versos para o cartão) *</label>
+      <input id="fTrecho" type="text" placeholder="Os versos que aparecem na miniatura…" />
+    </div>
+    <div class="form-grupo">
+      <label>Poema completo *</label>
+      <textarea id="fTexto" placeholder="Escreva ou cole o poema aqui. Linha em branco separa estrofes."></textarea>
+    </div>
+    <div class="form-linha">
+      <div class="form-grupo">
+        <label>Categoria</label>
+        <select id="fCat">
+          <option value="">Sem categoria</option>
+          <option value="Amor">Amor</option>
+          <option value="Pátria">Pátria</option>
+          <option value="Saudade">Saudade</option>
+          <option value="Natureza">Natureza</option>
+          <option value="Liberdade">Liberdade</option>
+          <option value="Vida">Vida</option>
+        </select>
+      </div>
+      <div class="form-grupo">
+        <label>Tags (separar por vírgula)</label>
+        <input id="fTags" type="text" placeholder="Ex: mar, alma, noite" />
+      </div>
+    </div>
+    <div class="form-grupo">
+      <label>Poema em destaque?</label>
+      <select id="fDestaque">
+        <option value="nao">Não</option>
+        <option value="sim">Sim — mostrar em destaque no topo</option>
+      </select>
+    </div>
+    <div class="form-botoes">
+      <button class="btn-salvar" onclick="publicar()">✒ Publicar Poema</button>
+      <button class="btn-cancelar" onclick="fecharAdmin()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   ✦ CONFIGURAÇÃO
+   Substitua pelo número real de WhatsApp (formato: 258XXXXXXXXX)
+================================================================ */
+const WPP = '258877970564';
+const WPP_MSG = 'Olá Recefina! Vi os teus versos e queria falar contigo. 🌸';
+
+/* ================================================================
+   ✦ POEMAS — Array vazio, de propósito.
+   Adicione aqui os seus poemas directamente, ou use o botão ✒.
+
+   Estrutura de cada poema:
+   {
+     id: "id-unico",            // sem espaços nem acentos
+     titulo: "Título",
+     autor: "Recefina",
+     ano: "2025",
+     trecho: "Primeiros versos…",
+     texto: "Verso 1\nVerso 2\n\nEstrofe 2",  // \n = quebra, \n\n = nova estrofe
+     categoria: "Amor",         // Amor|Pátria|Saudade|Natureza|Liberdade|Vida
+     tags: ["palavra","outra"],
+     destaque: false            // true = aparece em destaque
+   }
+================================================================ */
+const POEMAS = [
+  {
+    id: "talvez-escolhas-imperfeitas",
+    titulo: "Talvez Escolhas Imperfeitas",
+    autor: "Recefina",
+    ano: "2026",
+    trecho: "Havia um amor que não pediu licença,\nque chegou como faca no lado errado do peito —\nquente, preciso, inevitável.",
+    texto: "Havia um amor que não pediu licença,\nque chegou como faca no lado errado do peito —\nquente, preciso, inevitável.\nDois corpos que se reconheceram\nantes que a consciência tivesse tempo de fugir.\n\nEra real.\nDeus, era tão real\nque doía respirar perto do outro\nsem poder tocar.\n\nMas havia outros corações também.\nCorações que dormiam sem saber\nque do outro lado da cama\nalguém já estava a morrer por outra pessoa.\nCorações inocentes.\nCorações que não mereciam\ncarregar uma culpa que nunca foi deles.\n\nE foi aí que o amor virou tortura.\n\nPorque não havia vilão nesta história.\nHavia dois seres que se encontraram\nno momento errado,\nna vida errada,\ncom as mãos já dadas a outras mãos —\ne mesmo assim sentiram\nque o chão tremeu.\n\nQuiseram.\nCom tudo.\nCom aquela vontade suja e honesta\nque não cabe em nenhuma oração\nmas também não consegue ser pecado.\n\nE então vieram as noites.\nAs noites longas onde cada um\nficava sozinho com o peso de saber:\nse eu escolho o que quero,\nalguém que eu também amo\nvai partir-se ao meio.\n\nNão existe saída limpa disso.\nNão existe.\n\nDeram um passo atrás\nnão por falta de coragem —\nmas porque amar de verdade\nàs vezes significa engolir o próprio fogo\npara não queimar quem está à volta.\n\nFicaram com a marca.\nCom aquele buraco no peito\nque ninguém vê\nmas que está sempre lá,\ndiscreto como uma cicatriz antiga,\ndoloroso como a primeira vez.\n\nE o amor ficou guardado\nnum lugar onde não faz mal a ninguém —\nsilencioso,\nintacto,\neterno da pior maneira possível:\n\nexistindo, sem poder existir.",
+    categoria: "Amor",
+    tags: ["escolha", "dor", "silêncio", "amor impossível"],
+    destaque: true
+  }
+];
+
+/* ================================================================
+   ESTADO
+================================================================ */
+let todos = [];
+let catActiva = null;
+let buscaActiva = '';
+
+function init() {
+  // juntar poemas do código + localStorage
+  todos = [...POEMAS];
+  try {
+    const s = JSON.parse(localStorage.getItem('rv_poemas') || '[]');
+    s.forEach(p => { if (!todos.find(x=>x.id===p.id)) todos.push(p); });
+  } catch(e){}
+
+  document.getElementById('wppSidebar').href =
+    `https://wa.me/${WPP}?text=${encodeURIComponent(WPP_MSG)}`;
+
+  render();
+}
+
+/* ================================================================
+   RENDER
+================================================================ */
+function render() {
+  const main = document.getElementById('main');
+  document.getElementById('totalPoemas').textContent = todos.length;
+
+  // Página vazia
+  if (todos.length === 0) {
+    document.getElementById('busca-info').textContent = '';
+    main.innerHTML = `
+      <div class="estado-vazio">
+        <span class="icone-vazio">✒</span>
+        <h2>A colectânea aguarda os seus versos</h2>
+        <p>Esta página nasceu para guardar e partilhar a sua poesia moçambicana.<br>
+        Clique no botão <strong>✒</strong> no canto inferior direito para publicar o seu primeiro poema.</p>
+        <button class="btn-ler" onclick="abrirAdmin()">Publicar primeiro poema</button>
+      </div>`;
+    return;
+  }
+
+  const filtrados = getFiltrados();
+
+  // Info de busca
+  if (buscaActiva || catActiva) {
+    document.getElementById('busca-info').textContent =
+      `${filtrados.length} poema${filtrados.length!==1?'s':''} encontrado${filtrados.length!==1?'s':''}`;
+  } else {
+    document.getElementById('busca-info').textContent = '';
+  }
+
+  let html = '';
+
+  // DESTAQUE (só quando sem filtros)
+  if (!buscaActiva && !catActiva) {
+    const d = todos.find(p=>p.destaque) || todos[todos.length-1];
+    const linhas = d.texto.split('\n\n');
+    html += `
+      <article class="poema-destaque">
+        <div class="tag-edicao">Poema em Destaque</div>
+        <h2 class="poema-titulo-grande">${fmtTitulo(d.titulo)}</h2>
+        <p class="poema-autor-linha">${d.autor}${d.ano?' · '+d.ano:''}</p>
+        <div class="poema-corpo">
+          ${linhas.slice(0,2).map((s,i)=>`<p class="${i===1?'ei':''}">${s.replace(/\n/g,'<br>')}</p>`).join('')}
+        </div>
+        <button class="btn-ler" onclick="verPoema('${d.id}')">Ler poema completo</button>
+      </article>
+      <div class="separador"><span></span><em>✦</em><span></span></div>
+    `;
+  }
+
+  // TÍTULO SECÇÃO
+  const tituloSec = buscaActiva ? 'Resultados da Busca' : catActiva || 'Todos os Poemas';
+  html += `<p class="secao-titulo">${tituloSec}</p>`;
+
+  // SEM RESULTADOS
+  if (filtrados.length === 0) {
+    html += `<div class="sem-resultados"><em>❦</em><p>Nenhum poema encontrado. Tente outro termo ou categoria.</p></div>`;
+  } else {
+    const rom = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX','XXI','XXII','XXIII','XXIV','XXV'];
+    html += `<div class="poemas-grade">`;
+    filtrados.forEach((p,i) => {
+      html += `
+        <div class="poema-card" onclick="verPoema('${p.id}')" style="animation-delay:${i*0.055}s">
+          <div class="poema-card-numero">${rom[i%rom.length]}</div>
+          <h3 class="poema-card-titulo">${p.titulo}</h3>
+          <p class="poema-card-autor">${p.autor}${p.ano?' · '+p.ano:''}</p>
+          <p class="poema-card-trecho">${p.trecho.replace(/\n/g,'<br>')}</p>
+          ${(p.tags||[]).length?`<div class="poema-card-tags">${p.tags.map(t=>`<span class="poema-card-tag">${t}</span>`).join('')}</div>`:''}
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  main.innerHTML = html;
+}
+
+function getFiltrados() {
+  return todos.filter(p => {
+    const mc = !catActiva || p.categoria === catActiva;
+    const q  = buscaActiva.toLowerCase().trim();
+    const mb = !q ||
+      p.titulo.toLowerCase().includes(q) ||
+      p.autor.toLowerCase().includes(q)  ||
+      p.texto.toLowerCase().includes(q)  ||
+      p.trecho.toLowerCase().includes(q) ||
+      (p.tags||[]).join(' ').toLowerCase().includes(q) ||
+      (p.categoria||'').toLowerCase().includes(q);
+    return mc && mb;
+  });
+}
+
+function fmtTitulo(t) {
+  const pts = t.split(' ');
+  if (pts.length < 3) return t;
+  const m = Math.ceil(pts.length/2);
+  return pts.slice(0,m).join(' ') + ' <em>' + pts.slice(m).join(' ') + '</em>';
+}
+
+/* ================================================================
+   FILTROS E BUSCA
+================================================================ */
+function filtrar(cat) {
+  catActiva = cat;
+  buscaActiva = '';
+  document.getElementById('campoBusca').value = '';
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('ativo'));
+  const k = cat ? 'nav-' + cat.normalize('NFD').replace(/[\u0300-\u036f]/g,'') : 'nav-todos';
+  const el = document.getElementById(k);
+  if (el) el.classList.add('ativo');
+  else document.getElementById('nav-todos').classList.add('ativo');
+  render();
+}
+
+function buscar() {
+  buscaActiva = document.getElementById('campoBusca').value;
+  catActiva = null;
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('ativo'));
+  document.getElementById('nav-todos').classList.add('ativo');
+  render();
+}
+
+/* ================================================================
+   MODAL POEMA
+================================================================ */
+function verPoema(id) {
+  const p = todos.find(x=>x.id===id);
+  if (!p) return;
+
+  document.getElementById('mp-cat').textContent    = p.categoria || 'Poema';
+  document.getElementById('mp-titulo').textContent = p.titulo;
+  document.getElementById('mp-autor').textContent  = `— ${p.autor}`;
+  document.getElementById('mp-ano').textContent    = p.ano ? `✦ ${p.ano}` : '';
+  document.getElementById('mp-tags').innerHTML     = (p.tags||[]).map(t=>`<span class="modal-tag-item">${t}</span>`).join('');
+
+  const estrofes = p.texto.split('\n\n');
+  document.getElementById('mp-texto').innerHTML = estrofes.map(e=>`<p>${e.replace(/\n/g,'<br>')}</p>`).join('');
+
+  // WhatsApp — partilha o poema
+  const msg = `✦ *${p.titulo}*\n— ${p.autor}\n\n${p.trecho}\n\n_(Versos de Recefina · Poesia Moçambicana)_`;
+  document.getElementById('mp-wpp').href = `https://wa.me/${WPP}?text=${encodeURIComponent(msg)}`;
+
+  document.getElementById('modalPoema').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharPoema() {
+  document.getElementById('modalPoema').classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+
+/* ================================================================
+   ADMIN
+================================================================ */
+function abrirAdmin() {
+  document.getElementById('fTitulo').value  = '';
+  document.getElementById('fAutor').value   = 'Recefina';
+  document.getElementById('fAno').value     = new Date().getFullYear();
+  document.getElementById('fTrecho').value  = '';
+  document.getElementById('fTexto').value   = '';
+  document.getElementById('fCat').value     = '';
+  document.getElementById('fTags').value    = '';
+  document.getElementById('fDestaque').value= 'nao';
+  document.getElementById('modalAdmin').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharAdmin() {
+  document.getElementById('modalAdmin').classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+
+function publicar() {
+  const titulo = document.getElementById('fTitulo').value.trim();
+  const autor  = document.getElementById('fAutor').value.trim() || 'Recefina';
+  const trecho = document.getElementById('fTrecho').value.trim();
+  const texto  = document.getElementById('fTexto').value.trim();
+
+  if (!titulo || !trecho || !texto) {
+    toast('⚠ Preencha o título, trecho e texto.');
+    return;
+  }
+
+  const id = titulo.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')
+    + '-' + Date.now();
+
+  const tags = document.getElementById('fTags').value.trim()
+    ? document.getElementById('fTags').value.split(',').map(t=>t.trim()).filter(Boolean)
+    : [];
+
+  const dest = document.getElementById('fDestaque').value === 'sim';
+  if (dest) todos.forEach(p=>p.destaque=false);
+
+  const p = {
+    id, titulo, autor,
+    ano:      document.getElementById('fAno').value.trim() || String(new Date().getFullYear()),
+    trecho, texto,
+    categoria:document.getElementById('fCat').value,
+    tags, destaque: dest
+  };
+
+  todos.push(p);
+  // guardar extras no localStorage
+  try {
+    const ids_orig = POEMAS.map(x=>x.id);
+    const extras = todos.filter(x=>!ids_orig.includes(x.id));
+    localStorage.setItem('rv_poemas', JSON.stringify(extras));
+  } catch(e){}
+
+  console.log('✦ Copie para o array POEMAS:\n', JSON.stringify(p, null, 2));
+
+  fecharAdmin();
+  catActiva = null;
+  buscaActiva = '';
+  document.getElementById('campoBusca').value = '';
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('ativo'));
+  document.getElementById('nav-todos').classList.add('ativo');
+  render();
+  toast('✦ Poema publicado com sucesso!');
+}
+
+/* ================================================================
+   TOAST
+================================================================ */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('visivel');
+  setTimeout(()=>t.classList.remove('visivel'), 3400);
+}
+
+/* ================================================================
+   FECHAR MODAIS — clique fora ou ESC
+================================================================ */
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',function(e){
+    if(e.target===this){ this.classList.remove('aberto'); document.body.style.overflow=''; }
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.aberto').forEach(m=>{
+      m.classList.remove('aberto'); document.body.style.overflow='';
+    });
+  }
+});
+
+init();
+</script>
+</body>
+</html>
