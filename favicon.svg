@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a1a08"/>
+      <stop offset="100%" stop-color="#1a1008"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#c9922a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#c9922a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fundo redondo escuro -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect width="64" height="64" rx="14" fill="url(#glow)"/>
+
+  <!-- Borda dourada fina -->
+  <rect x="2" y="2" width="60" height="60" rx="12"
+        fill="none" stroke="#c9922a" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- Pena estilizada -->
+  <!-- Cabo da pena -->
+  <line x1="38" y1="14" x2="22" y2="52"
+        stroke="#c9922a" stroke-width="1.4"
+        stroke-linecap="round" stroke-opacity="0.9"/>
+
+  <!-- Corpo da pena — lado direito -->
+  <path d="M38,14 C46,18 50,26 44,34 C40,40 32,44 22,52"
+        fill="none" stroke="#e8d9b0" stroke-width="1.6"
+        stroke-linecap="round" stroke-opacity="0.95"/>
+
+  <!-- Corpo da pena — lado esquerdo -->
+  <path d="M38,14 C30,16 26,24 26,32 C26,38 24,44 22,52"
+        fill="none" stroke="#e8d9b0" stroke-width="1.2"
+        stroke-linecap="round" stroke-opacity="0.7"/>
+
+  <!-- Nervura central da pena -->
+  <path d="M38,14 C36,22 30,32 22,52"
+        fill="none" stroke="#c9922a" stroke-width="1"
+        stroke-linecap="round" stroke-opacity="0.8"/>
+
+  <!-- Barbas da pena (linhas internas) -->
+  <path d="M36,18 C38,20 41,22 43,24" fill="none" stroke="#e8d9b0" stroke-width="0.7" stroke-opacity="0.5"/>
+  <path d="M34,22 C37,24 40,26 41,29" fill="none" stroke="#e8d9b0" stroke-width="0.7" stroke-opacity="0.5"/>
+  <path d="M31,27 C34,28 37,30 38,33" fill="none" stroke="#e8d9b0" stroke-width="0.7" stroke-opacity="0.5"/>
+  <path d="M29,32 C31,33 33,35 34,37" fill="none" stroke="#e8d9b0" stroke-width="0.7" stroke-opacity="0.5"/>
+  <path d="M26,38 C28,38 30,39 31,41" fill="none" stroke="#e8d9b0" stroke-width="0.7" stroke-opacity="0.4"/>
+
+  <!-- Ponta da pena (bico) -->
+  <path d="M22,52 C21,50 20,54 23,53 C22,51 22,52 22,52"
+        fill="#c9922a" stroke="none" opacity="0.9"/>
+
+  <!-- Pequeno traço de escrita -->
+  <path d="M16,55 Q20,53 26,54"
+        fill="none" stroke="#c9922a" stroke-width="1.2"
+        stroke-linecap="round" stroke-opacity="0.6"/>
+
+  <!-- Estrelinhas decorativas -->
+  <circle cx="12" cy="14" r="0.9" fill="#c9922a" opacity="0.6"/>
+  <circle cx="52" cy="48" r="0.7" fill="#c9922a" opacity="0.4"/>
+  <circle cx="10" cy="38" r="0.5" fill="#e8d9b0" opacity="0.3"/>
+  <circle cx="54" cy="20" r="0.6" fill="#e8d9b0" opacity="0.35"/>
+</svg>
